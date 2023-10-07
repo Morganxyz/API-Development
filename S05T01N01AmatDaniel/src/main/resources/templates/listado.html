@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Sucursales</title>
+    <link rel="stylesheet" type ="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container-fluid text-center">
+ <div><h2>Gestión de Sucursales</h2></div>
+     <div class ="m-2">
+      <a class="h3" th:href="@{/novaSucursal}">Afegir nova sucursal</a>
+      </div>
+    <div>
+    <table class ="table table-bordered">
+        <thead class="thead-dark">
+      <tr>
+        <th>Id</th>
+        <th>Nom de la Sucursal</th>
+        <th>Pais de la sucursal</th>
+        <th>Tipus de la sucursal</th>
+        <th></th>
+      </tr>
+        </thead>
+        <th:block th:each="sucursal : ${sucursalDtoList}">
+            <tr>
+                <td>[[${sucursal.pk_SucursalID}]]</td>
+                <td>[[${sucursal.nomSucursal}]]</td>
+                <td>[[${sucursal.paisSucursal}]]</td>
+                <td>[[${sucursal.tipoSucursal}]]</td>
+                <td>
+                    <a class ="h4 mr-3" th:href="@{'edit/' + ${sucursal.pk_SucursalID}}">Edit</a>
+                    <a class = "h4" th:href="@{'delete/' + ${sucursal.pk_SucursalID}}">Delete</a>
+                </td>
+            </tr>
+
+        </th:block>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>

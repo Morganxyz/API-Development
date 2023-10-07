@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Registre de nova Sucursal</title>
+  <link rel="stylesheet" type ="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 container justify-contain-center-card border border-secondary">
+      <h1 class="text-center">Registre de la nova sucursal</h1>
+      <div class="card-body">
+        <form th:action="@{/save}" th:object="${sucursal}" method="post">
+          <div class="form-group">
+            <label> <strong>Nom :</strong> </label>
+            <input type="text" name="Nom" th:field="*{nomSucursal}" class="form-control"  required>
+          </div>
+          <br>
+          <div class="form-group">
+            <label> <strong>Pais :</strong> </label>
+            <input type="text" name="Pais" th:field="*{paisSucursal}" class="form-control"  required>
+          </div>
+          <br>
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-outline-success">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
