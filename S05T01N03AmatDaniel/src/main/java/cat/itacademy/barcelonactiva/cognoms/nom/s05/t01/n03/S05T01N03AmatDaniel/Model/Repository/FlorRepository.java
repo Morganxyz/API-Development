@@ -35,7 +35,7 @@ public class FlorRepository {
     public Mono<FlorDto> getOneFlower(int id) {
 
         return this.webClient.get()
-                .uri("/flor/getOne/{id}")
+                .uri("/flor/getOne/{id}",id)
                 .retrieve()
                 .bodyToMono(FlorDto.class);
     }
@@ -51,7 +51,7 @@ public class FlorRepository {
     public Mono<Flor> updateFlower(int id, Flor flor) {
 
         return this.webClient.put()
-                .uri("/flor/update/{id}")
+                .uri("/flor/update/{id}",id)
                 .header(HttpHeaders.CONTENT_TYPE,MediaType.APPLICATION_JSON_VALUE)
                 .body(Mono.just(flor),Flor.class)
                 .retrieve()
@@ -61,7 +61,7 @@ public class FlorRepository {
     public Mono deleteFlor(int id) {
 
         return this.webClient.delete()
-                .uri("/flor/delete/{id}")
+                .uri("/flor/delete/{id},id")
                 .retrieve()
                 .bodyToMono(Flor.class);
     }
